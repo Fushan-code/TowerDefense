@@ -9,12 +9,14 @@ export default class Main extends cc.Component {
     @property(cc.Prefab)blockMap:cc.Prefab=null;
     @property(cc.Prefab)monsterNode:cc.Prefab=null;
     @property(cc.Prefab)buttom:cc.Prefab=null;
+    @property(cc.Prefab)cannonBuild:cc.Prefab=null;
     onLoad(){
         StaticInstance.main=this;
     }
     initUI(){
         this.initBlockMap();
         this.initmonsterNode();
+        this.initCannonBuild();
         this.initButtom();
     }
     initBlockMap() {
@@ -25,6 +27,11 @@ export default class Main extends cc.Component {
     initmonsterNode() {
         let node = cc.instantiate(this.monsterNode)
         this.gameView.addChild(node)
+        node.setPosition(-320, 333)
+    }
+    initCannonBuild(){
+        let node = cc.instantiate(this.cannonBuild)
+        this.gameView.addChild(node) 
         node.setPosition(-320, 333)
     }
     initButtom()

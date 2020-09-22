@@ -95,6 +95,28 @@
       "borderRight": 23,
       "spriteType": "normal",
       "subMetas": {}
+    },
+    "ui_towerLevel.png": {
+      "ver": "1.0.4",
+      "uuid": "80830d5d-bb78-4ee3-979a-3fcc40bb76e9",
+      "rawTextureUuid": "b04c2a8a-3c25-443f-b9cf-e284ef50134c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 184,
+      "trimY": 2,
+      "width": 34,
+      "height": 31,
+      "rawWidth": 34,
+      "rawHeight": 31,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "spriteType": "normal",
+      "subMetas": {}
     }
   }
 }

@@ -1,4 +1,3 @@
-import { MonsterType } from "../enum/Enum";
 import { StaticInstance } from "../StaticInstance";
 import { Util } from "../util/Util";
 
@@ -8,10 +7,9 @@ const { ccclass, property } = cc._decorator;
 export default class MonsterBuild extends cc.Component {
 
     @property(cc.Prefab) pre_mstItem: cc.Prefab = null;
-    @property(cc.Node) btn_move: cc.Node = null;
     private monsterQueue = [];
     onLoad() {
-        Util.addClickEvent(this.btn_move, this.itemMove, this)
+        StaticInstance.monsterBuild = this;
         this.schedule(function () {
             this.sortMonsterList();
         }.bind(this), 0.5);
@@ -38,7 +36,7 @@ export default class MonsterBuild extends cc.Component {
     sortMonsterList() {
         if (this.monsterQueue.length < 2) return
         this.monsterQueue.sort(function (a, b) {
-            if (a.y - b.y > 0.001 ) {
+            if (a.y - b.y > 0.001) {
                 return -1;
             } else if (a.y == b.y) {
                 return 0;

@@ -1,4 +1,5 @@
 import { MakeCount } from "../enum/Enum";
+import { StaticInstance } from "../StaticInstance";
 import { Util } from "../util/Util";
 
 const { ccclass, property } = cc._decorator;
@@ -12,13 +13,16 @@ export default class Buttom extends cc.Component {
     private canMakeCount: number = 10;
     private canClickHammer: boolean = false;
     private canWaterAtion: boolean = false;
-    private canCannonArr = [];
     onLoad() {
+        StaticInstance.buttom = this;
         Util.addClickEvent(this.btn_make, this.onClickMake, this)
         this.updateMakeCount();
     }
 
     onClickMake() {
+        let index=StaticInstance.cannonbuild.getCanMakeIndex();
+        if(index==null)return
+        if (this.canMakeCount == 0) return
         if (!this.canClickHammer) {
             this.canClickHammer = true;
             let ang1 = cc.rotateTo(0.2, 90);
@@ -30,6 +34,7 @@ export default class Buttom extends cc.Component {
             this.hammer.runAction(seq)
         }
         this.subMakeNum()
+        StaticInstance.cannonbuild.cannonBuild(index);
     }
     addMakeNum() {
         this.canMakeCount++;
