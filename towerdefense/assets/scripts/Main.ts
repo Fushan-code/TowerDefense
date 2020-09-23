@@ -15,8 +15,8 @@ export default class Main extends cc.Component {
     }
     initUI(){
         this.initBlockMap();
-        this.initmonsterNode();
         this.initCannonBuild();
+        this.initmonsterNode();
         this.initButtom();
     }
     initBlockMap() {
