@@ -4,10 +4,23 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>attackScope.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{239,39}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{239,39}}</string>
+                <key>sourceSize</key>
+                <string>{239,39}</string>
+            </dict>
             <key>ui_bottom.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,170},{640,140}}</string>
+                <string>{{2,211},{640,140}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +33,7 @@
             <key>ui_build.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{180,166}}</string>
+                <string>{{2,43},{180,166}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +46,7 @@
             <key>ui_build_hammer.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{144,305},{84,80}}</string>
+                <string>{{144,346},{84,80}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -46,7 +59,7 @@
             <key>ui_build_water.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{144,170},{110,133}}</string>
+                <string>{{144,211},{110,133}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -56,10 +69,23 @@
                 <key>sourceSize</key>
                 <string>{110,133}</string>
             </dict>
+            <key>ui_mergeRemind.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,853},{114,116}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{1,0},{114,116}}</string>
+                <key>sourceSize</key>
+                <string>{116,116}</string>
+            </dict>
             <key>ui_towerLevel.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{184,2},{34,31}}</string>
+                <string>{{184,43},{34,31}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -79,7 +105,7 @@
             <key>size</key>
             <string>{256,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:70df13ae4303a37caceb2b45bbfb425c$</string>
+            <string>$TexturePacker:SmartUpdate:638d6032ff775dd11f42781a5b749620$</string>
             <key>textureFileName</key>
             <string>gameUI.png</string>
         </dict>

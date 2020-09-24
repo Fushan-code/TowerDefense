@@ -12,9 +12,18 @@ export default class MstItem extends cc.Component {
     private _type: number = null;
     private _index: number = null;
     private _curMoveIndex: number = 0;
+    private _isDead:boolean;
     onLoad() {
         StaticInstance.mstItem = this;
+        this._isDead=false;
 
+    }
+    setDead(flag)
+    {
+        this._isDead=flag;
+    }
+    getDead(){
+        return this._isDead;
     }
     setImage(type, index) {
         this._type = type;
@@ -64,7 +73,8 @@ export default class MstItem extends cc.Component {
         }
         //添加最后一个action用于移除该节点
         let callEnd = cc.callFunc(function () {
-            this.node.removeFromParent();
+        this._isDead=true;
+           StaticInstance.monsterBuild.onMonsterKilled(this.node)
         }.bind(this))
         moveList.push(callEnd)
         let end = cc.sequence(moveList)
