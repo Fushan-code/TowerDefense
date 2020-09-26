@@ -16,7 +16,13 @@ export default class MstItem extends cc.Component {
     onLoad() {
         StaticInstance.mstItem = this;
         this._isDead=false;
-
+    }
+	 init() {
+        this._pathList.splice(0, this._pathList.length);
+        this._type = null;
+        this._index = null;
+        this._curMoveIndex = 0;
+        this.node.stopAllActions();
     }
     setDead(flag)
     {

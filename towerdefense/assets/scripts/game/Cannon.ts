@@ -11,11 +11,13 @@ export default class Cannon extends cc.Component {
     @property(cc.Node) range: cc.Node = null;
     @property(cc.SpriteAtlas) gunAtlas: cc.SpriteAtlas = null;
     @property(cc.SpriteAtlas) padAtlas: cc.SpriteAtlas = null;
+    @property([cc.Prefab]) pre_GunArr: cc.Prefab[] = [];
     private objData;
     private type: number = 0;
     private curLevel: number = 1;
     private attackTarget;
     private fire: boolean = false;
+    private gunSprite;
     onLoad() { }
 
     //落地特效-放大渐隐
@@ -48,6 +50,15 @@ export default class Cannon extends cc.Component {
     }
     setType(type) {
         this.type = type
+        if (this.gunSprite == null) {
+            if (this.pre_GunArr[type] != null) {
+                this.gunSprite = cc.instantiate(this.pre_GunArr[type])
+            } else {
+                this.gunSprite = new cc.Node;
+                this.gunSprite.addComponent(cc.Sprite);
+            }
+            this.gun.addChild(this.gunSprite)
+        }
         this.updateStyle();
     }
     getType() {
@@ -56,7 +67,7 @@ export default class Cannon extends cc.Component {
     updateStyle() {
         let name = '' + this.type + "_" + (this.curLevel - 1);
         let gunframe = this.gunAtlas.getSpriteFrame(name);
-        this.gun.getComponent(cc.Sprite).spriteFrame = gunframe;
+        this.gunSprite.getComponent(cc.Sprite).spriteFrame = gunframe;
         let index = Math.floor(this.curLevel - 1 / 3)
         name = '' + this.type + "_" + index;
         let padframe = this.padAtlas.getSpriteFrame(name);
@@ -92,16 +103,23 @@ export default class Cannon extends cc.Component {
     setTarget(target) {
         this.attackTarget = target;
         this.fire = false;
+        if(target==null)
+        {
+            this.endFire();
+        }
     }
-    findMonsterAttack() {
+    beginFire(){
 
+    }
+    endFire(){
+        
     }
     update(dt) {
         if (this.attackTarget == null) {
             let target = this.attackTarget = StaticInstance.monsterBuild.calculateDistance(this.node)
             this.setTarget(target);
         }
-        if (this.attackTarget!= null) {
+        if (this.attackTarget != null) {
             if (this.attackTarget.getComponent('MstItem').getDead()) {
                 this.setTarget(null)
                 return
@@ -125,7 +143,9 @@ export default class Cannon extends cc.Component {
                 this.gun.angle += moveAngle;
                 if (this.gun.angle - angle < moveAngle) {
                     this.fire = true;
+                    this.beginFire();
                     this.setRot(angle);
+                    
                 }
             }
 
